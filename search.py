@@ -1562,6 +1562,7 @@ def compare_searchers(problems, header,
         p = InstrumentedProblem(problem)
         solution = searcher(p)
         path_cost = solution.path_cost #Adding path cost
+        print("I'm Path Cost HAHAHAH")
         return (path_cost,p) # We return now both path cost and problem stats
 
     table = [[name(s)] + [do(s, p) for p in problems] for s in searchers]
