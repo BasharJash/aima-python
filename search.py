@@ -1560,8 +1560,9 @@ def compare_searchers(problems, header,
                                  recursive_best_first_search]):
     def do(searcher, problem):
         p = InstrumentedProblem(problem)
-        searcher(p)
-        return p
+        solution = searcher(p)
+        path_cost = solution.path_cost #Adding path cost
+        return (path_cost,p) # We return now both path cost and problem stats
 
     table = [[name(s)] + [do(s, p) for p in problems] for s in searchers]
     print_table(table, header)
